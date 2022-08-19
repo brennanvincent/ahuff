@@ -27,6 +27,8 @@
 
 use endio_bit::{BEBitReader, BEBitWriter};
 
+use std::io::{Read, Write};
+
 #[derive(Debug, Clone)]
 enum Node {
     /// An internal node, which
