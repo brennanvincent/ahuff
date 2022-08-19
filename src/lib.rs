@@ -7,7 +7,7 @@
 // are Copyright © 2022 Brennan Vincent, and made available under the Apache License, Version 2.0.
 
 //! An adaptive Huffman encoder, for use in compression schemes.
-//! 
+//!
 //! To encode data, instantiate a [`Codec`] object, and repeatedly call
 //! [`Codec::write_and_update`]. To decode data, instantiate a [`Codec`] object,
 //! and repeatedly call [`Codec::read_and_update`].
@@ -266,6 +266,11 @@ impl Codec {
     pub fn update(&mut self, symbol: usize) {
         let a = self.symbol_index[symbol];
         self.update_at(a);
+    }
+
+    /// Get the number of symbols in the alphabet
+    pub fn n_symbols(&self) -> usize {
+        self.n_symbols
     }
 }
 
